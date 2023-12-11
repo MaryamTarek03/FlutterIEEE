@@ -8,6 +8,7 @@ class WhatsAppHome extends StatelessWidget {
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
+        titleSpacing: 20,
         elevation: 0,
         actions: const [
           Icon(Icons.search),
@@ -24,7 +25,7 @@ class WhatsAppHome extends StatelessWidget {
           children: [
             Container(
               width: double.infinity,
-              height: 50,
+              height: 60,
               color: Colors.green,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -33,27 +34,27 @@ class WhatsAppHome extends StatelessWidget {
                   Text("CHAT",
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 35,
-                    fontWeight: FontWeight.w300,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400,
                   ),
                   ),
                   SizedBox(
-                    width: 40,
+                    width: 80,
                   ),
                   Text("STATUS",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w300,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w400,
                     ),),
                   SizedBox(
-                    width: 40,
+                    width: 80,
                   ),
                   Text("CALLS",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w300,
+                      fontSize: 30,
+                      fontWeight: FontWeight.w400,
                     ),),
                 ],
               ),
