@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterieee/Screens/task01.dart';
 
+import 'Screens/session02.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,9 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter IEEE',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.purple,
       ),
-      home: const WhatsAppHome(),
+      home: const S2App01(),
       debugShowCheckedModeBanner: false,
     );
   }
