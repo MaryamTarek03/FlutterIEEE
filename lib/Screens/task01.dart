@@ -27,10 +27,10 @@ class WhatsAppHome extends StatelessWidget {
               width: double.infinity,
               height: 60,
               color: Colors.green,
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
+                children: [
                   Text("CHAT",
                   style: TextStyle(
                     color: Colors.white,
