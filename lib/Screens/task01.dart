@@ -8,15 +8,19 @@ class WhatsAppHome extends StatelessWidget {
     return Scaffold(
       drawer: const Drawer(),
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: Colors.green,
         titleSpacing: 20,
         elevation: 0,
         actions: const [
           Icon(Icons.search),
-          Icon(Icons.more_vert)
+          Icon(Icons.more_vert),
+          SizedBox(width: 10,)
         ],
         title: const Text("WhatsApp"
         ,style:TextStyle(
-            fontSize: 40,
+            color: Colors.white,
+            fontSize: 30,
           ),),
       ),
       body: SizedBox(
@@ -27,36 +31,39 @@ class WhatsAppHome extends StatelessWidget {
               width: double.infinity,
               height: 60,
               color: Colors.green,
-              child: const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Text("CHAT",
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.w400,
-                  ),
-                  ),
-                  SizedBox(
-                    width: 80,
-                  ),
-                  Text("STATUS",
+              child: const Padding(
+                padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("CHAT",
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: 20,
                       fontWeight: FontWeight.w400,
-                    ),),
-                  SizedBox(
-                    width: 80,
-                  ),
-                  Text("CALLS",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w400,
-                    ),),
-                ],
+                    ),
+                    ),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Text("STATUS",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),),
+                    SizedBox(
+                      width: 50,
+                    ),
+                    Text("CALLS",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                      ),),
+                  ],
+                ),
               ),
             ),
             const SizedBox(height: 15,),
@@ -84,14 +91,14 @@ class Chat extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         const SizedBox(
           width: 15,
         ),
         const CircleAvatar(
-          backgroundImage: AssetImage('lib/Pictures/wallpaperflare.com_wallpaper (21).jpg',),
-          radius: 40,
+          backgroundImage: AssetImage('assets/Pictures/wallpaperflare.com_wallpaper (21).jpg',),
+          radius: 30,
         ),
         const SizedBox(
           width: 20,
@@ -100,7 +107,7 @@ class Chat extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children:  [
             Text(name,style: const TextStyle(
-              fontSize: 45,
+              fontSize: 30,
               fontWeight: FontWeight.bold,
             ),),
             Text(txt,style: const TextStyle(

@@ -43,7 +43,7 @@ class S2App01 extends StatelessWidget {
                 Text(
                   "Breaking News",
                   style: TextStyle(
-                    fontSize: 50,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -88,7 +88,7 @@ class S2App01 extends StatelessWidget {
                 Text(
                   "Recent News",
                   style: TextStyle(
-                    fontSize: 50,
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -138,7 +138,7 @@ class S2App01 extends StatelessWidget {
       ),
       floatingActionButton: Container(
         width: double.infinity,
-        height: 100,
+        height: 60,
         margin: const EdgeInsets.only(left: 30),
         alignment: Alignment.center,
         decoration: BoxDecoration(
@@ -153,19 +153,19 @@ class S2App01 extends StatelessWidget {
                 child: Icon(
               Icons.home,
               color: Colors.white,
-              size: 40,
+              size: 30,
             )),
             Expanded(
                 child: Icon(
               Icons.video_collection_outlined,
               color: Colors.white,
-              size: 40,
+              size: 30,
             )),
             Expanded(
                 child: Icon(
               Icons.save,
               color: Colors.white,
-              size: 40,
+              size: 30,
             )),
           ],
         ),
@@ -211,7 +211,7 @@ class Item extends StatelessWidget {
                 text,
                 style: const TextStyle(
                   // overflow: TextOverflow.ellipsis,
-                  fontSize: 40,
+                  fontSize: 30,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                 ),
@@ -248,7 +248,7 @@ class MyImage extends StatelessWidget {
               child: Text(text,
                   style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 30,
+                      fontSize: 20,
                       fontWeight: FontWeight.bold))))
     ]);
   }
