@@ -1,6 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutterieee/Screens/Grid/grid_view.dart';
+import 'package:flutterieee/Screens/s3.dart';
 import 'package:flutterieee/Screens/session02.dart';
 import 'package:flutterieee/Screens/task01.dart';
+
+
+final List<Widget> pages = [
+  const WhatsAppHome(),
+  const NewsApp(),
+  const PointsCounter(),
+  const MyGridView()
+];
+
+final List<String> pageNames = [
+  'WhatsApp',
+  'News App',
+  'Points Counter',
+  'Grid View',
+];
+
 
 class Home extends StatelessWidget {
   const Home({super.key});
@@ -21,8 +39,7 @@ class Home extends StatelessWidget {
               fontSize: 60,
             ),),
             SizedBox(height: 20,),
-            TaskButton(text: "1: WhatsApp Home", check: 1,),
-            TaskButton(text: "2: News App", check: 2,)
+            Expanded(child: TaskList())
           ],
         ),
       ),
@@ -31,9 +48,8 @@ class Home extends StatelessWidget {
 }
 
 class TaskButton extends StatelessWidget {
-  const TaskButton({super.key, required this.check, required this.text });
-  final int check;
-  final String text;
+  const TaskButton({super.key, required this.index});
+  final int index;
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +64,29 @@ class TaskButton extends StatelessWidget {
         ),
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => goTo(check)));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => pages[index]));
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                text,
-                style: const TextStyle(color: Colors.black87,fontSize: 20),)
+              Expanded(
+                  flex: 1,
+                  child: Text(
+                    '${index + 1}',
+                    style: const TextStyle(
+                      fontSize: 40,
+                    ),
+                  )
+              ),
+              Expanded(
+                flex: 3,
+                child: Hero(
+                  tag: pageNames[index],
+                  child: Text(
+                    pageNames[index],
+                    style: const TextStyle(color: Colors.black87,fontSize: 20),),
+                ),
+              )
             ],
           ),
         ),
@@ -64,15 +95,17 @@ class TaskButton extends StatelessWidget {
   }
 }
 
-Widget goTo(int check)
-{
-  switch (check)
-  {
-    case 1:
-      return const WhatsAppHome();
-    case 2:
-      return const S2App01();
-    default:
-      return const S2App01();
+
+class TaskList extends StatelessWidget {
+  const TaskList({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: pages.length,
+      itemBuilder: (context, idx) {
+        return TaskButton(index: idx);
+      }
+    );
   }
 }

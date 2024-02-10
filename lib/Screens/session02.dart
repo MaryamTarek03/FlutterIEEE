@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class S2App01 extends StatelessWidget {
-  const S2App01({super.key});
+class NewsApp extends StatelessWidget {
+  const NewsApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,12 +21,15 @@ class S2App01 extends StatelessWidget {
         ],
         title: const Padding(
           padding: EdgeInsets.all(10.0),
-          child: Text(
-            "NewsApp",
-            style: TextStyle(
-              fontSize: 40,
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
+          child: Hero(
+            tag: 'News App',
+            child: Text(
+              "News App",
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
         ),

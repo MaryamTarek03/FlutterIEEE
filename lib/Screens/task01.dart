@@ -17,11 +17,14 @@ class WhatsAppHome extends StatelessWidget {
           Icon(Icons.more_vert),
           SizedBox(width: 10,)
         ],
-        title: const Text("WhatsApp"
-        ,style:TextStyle(
-            color: Colors.white,
-            fontSize: 30,
-          ),),
+        title: const Hero(
+          tag: "WhatsApp",
+          child: Text("WhatsApp"
+          ,style:TextStyle(
+              color: Colors.white,
+              fontSize: 30,
+            ),),
+        ),
       ),
       body: SizedBox(
         width: double.infinity,
