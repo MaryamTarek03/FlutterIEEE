@@ -9,16 +9,19 @@ class MyGridView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Hero(
+      // backgroundColor: Colors.black,
+      appBar: AppBar(
+        forceMaterialTransparency: true,
+        title: const Hero(
         tag: 'Grid View',
         child: Text(
             'Grid View',
-            style: TextStyle(color: Colors.black87,fontSize: 20)
+            style: TextStyle(color: Colors.black,fontSize: 20)
         ),
       ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: const EdgeInsets.all(5.0),
         child: MyGridBuilder(myIcons: myIcons),
       ),
     );

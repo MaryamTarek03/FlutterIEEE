@@ -10,8 +10,8 @@ class MyGridBuilder extends StatelessWidget {
     return GridView.builder(
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 20,
+        mainAxisSpacing: 5,
+        crossAxisSpacing: 5,
       ),
       itemBuilder: (context, index) => GridContainer(content: myIcons[index]),
       itemCount: myIcons.length,
