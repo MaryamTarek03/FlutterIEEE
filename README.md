@@ -1,16 +1,8 @@
 # flutterIEEE
 
-IEEE Flutter Pages
+IEEE Flutter Tasks
 
-## Getting Started
+![Home](https://github.com/MaryamTarek03/FlutterIEEE/blob/master/Project%20Screenshots/Screenshot_2024_01_26_23_46_17_89_26730e61e8272483756ea5590e01a767.jpg)
+![Screenshot_2024_01_26_23_51_03_48_26730e61e8272483756ea5590e01a767](https://github.com/MaryamTarek03/FlutterIEEE/assets/124086608/cf8b198f-b3e7-4838-952c-b1669ecaac60)
+![Screenshot_2024_01_26_23_53_55_81_26730e61e8272483756ea5590e01a767](https://github.com/MaryamTarek03/FlutterIEEE/assets/124086608/e4a30cc6-0b9c-453d-8482-59dfb68126ea)
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
