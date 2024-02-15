@@ -13,6 +13,7 @@ class _PointsCounterState extends State<PointsCounter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Hero(
           tag: 'Points Counter',
           child: Text("Points Counter",style: TextStyle(
