@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterieee/Screens/BMI%20Calc/bmi_login.dart';
+import 'package:flutterieee/Screens/Calculator/main_calc.dart';
+import 'package:flutterieee/Screens/Counter/counter.dart';
 import 'package:flutterieee/Screens/Grid/grid_view.dart';
 import 'package:flutterieee/Screens/s3.dart';
 import 'package:flutterieee/Screens/session02.dart';
@@ -7,42 +9,51 @@ import 'package:flutterieee/Screens/task01.dart';
 import 'package:flutterieee/Screens/workshop/my_home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'home_model.dart';
+
 const Color homeColor = Color.fromRGBO(221, 153, 153, 1);
 
-final List<Widget> pages = [
-  const WhatsAppHome(),
-  const NewsApp(),
-  const PointsCounter(),
-  const MyGridView(),
-  const BmiLogin(),
-  const WorkshopHome(),
-];
-
-final List<String> pageNames = [
-  'WhatsApp',
-  'News App',
-  'Points Counter',
-  'Grid View',
-  'BMI Calculator',
-  'Profile Chats'
-];
-
-final List<IconData> pageIcons = [
-  Icons.chat,
-  Icons.newspaper,
-  Icons.control_point_duplicate,
-  Icons.grid_view_rounded,
-  Icons.monitor_weight_rounded,
-  Icons.person_pin,
-];
-
-final List<String> pageImages = [
-  'assets/Pictures/Home/whatsapp.png',
-  'assets/Pictures/Home/news2.PNG',
-  'assets/Pictures/Home/news.PNG',
-  'assets/Pictures/Home/Grid.png',
-  'assets/Pictures/Home/BMI.png',
-  'assets/Pictures/Home/BMI.png',
+List<HomeModel> mainPages = [
+  HomeModel(
+    name: 'WhatsApp',
+    page: const WhatsAppHome(),
+    icon: Icons.chat,
+  ),
+  HomeModel(
+    name: 'News App',
+    page: const NewsApp(),
+    icon: Icons.newspaper,
+  ),
+  HomeModel(
+    name: 'Points Counter',
+    page: const PointsCounter(),
+    icon: Icons.control_point_duplicate,
+  ),
+  HomeModel(
+    name: 'Grid View',
+    page: const MyGridView(),
+    icon: Icons.grid_view_rounded,
+  ),
+  HomeModel(
+    name: 'BMI Calculator',
+    page: const BmiLogin(),
+    icon: Icons.monitor_weight_rounded,
+  ),
+  HomeModel(
+    name: 'Profile Chats',
+    page: const WorkshopHome(),
+    icon: Icons.person_pin,
+  ),
+  HomeModel(
+    name: 'Calculator',
+    page: const Calculator(),
+    icon: Icons.calculate,
+  ),
+  HomeModel(
+    name: 'Counter',
+    page: const Counter(),
+    icon: Icons.calculate,
+  ),
 ];
 
 class Home extends StatelessWidget {
@@ -101,12 +112,12 @@ class TaskButton extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: ElevatedButton(
           onPressed: () {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => pages[index]));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => mainPages[index].page));
           },
           child: ListTile(
             title: Text(
-              pageNames[index],
+              mainPages[index].name,
               style: GoogleFonts.cabin(
                 color: homeColor,
                 fontSize: 24,
@@ -121,7 +132,7 @@ class TaskButton extends StatelessWidget {
               ),
             ),
             trailing: Icon(
-              pageIcons[index],
+              mainPages[index].icon,
               size: 30,
               color: homeColor,
               // Colors.purple[200],
@@ -144,7 +155,7 @@ class TaskList extends StatelessWidget {
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      itemCount: pages.length,
+      itemCount: mainPages.length,
       itemBuilder: (context, idx) {
         return Padding(
           padding: EdgeInsets.symmetric(
