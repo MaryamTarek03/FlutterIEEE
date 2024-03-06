@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutterieee/Screens/BMI%20Calc/bmi_login.dart';
-import 'package:flutterieee/Screens/Calculator/main_calc.dart';
+import 'package:flutterieee/Screens/Calculator/presentation/screens/main_calc.dart';
 import 'package:flutterieee/Screens/Counter/counter.dart';
 import 'package:flutterieee/Screens/Grid/grid_view.dart';
-import 'package:flutterieee/Screens/s3.dart';
-import 'package:flutterieee/Screens/session02.dart';
-import 'package:flutterieee/Screens/task01.dart';
+import 'package:flutterieee/Screens/OtherScreens/s3.dart';
+import 'package:flutterieee/Screens/OtherScreens/session02.dart';
+import 'package:flutterieee/Screens/OtherScreens/task01.dart';
 import 'package:flutterieee/Screens/workshop/my_home_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -52,7 +52,7 @@ List<HomeModel> mainPages = [
   HomeModel(
     name: 'Counter',
     page: const Counter(),
-    icon: Icons.calculate,
+    icon: Icons.add_circle_outline_rounded,
   ),
 ];
 

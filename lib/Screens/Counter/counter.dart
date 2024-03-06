@@ -34,7 +34,7 @@ class Counter extends StatelessWidget {
                     ),
                   ],
                 );
-              }),
+              },),
         ),
       ),
     );

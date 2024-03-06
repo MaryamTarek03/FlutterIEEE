@@ -233,26 +233,33 @@ class MyImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(alignment: Alignment.bottomCenter, children: [
-      Container(
-        clipBehavior: Clip.antiAliasWithSaveLayer,
-        width: 450,
-        height: 250,
-        decoration: BoxDecoration(
-          color: Colors.black,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Image(image: AssetImage(pic), fit: BoxFit.cover)
-      ),
-      Padding(
+    return Stack(
+      alignment: Alignment.bottomCenter,
+      children: [
+        Container(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
+            width: 450,
+            height: 250,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Image(image: AssetImage(pic), fit: BoxFit.cover)),
+        Padding(
           padding: const EdgeInsets.all(8.0),
           child: SizedBox(
-              width: 400,
-              child: Text(text,
-                  style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold))))
-    ]);
+            width: 400,
+            child: Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
