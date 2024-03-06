@@ -5,9 +5,9 @@ import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_btn.dar
 import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_text_field.dart';
 
 List<String> buttons = [
-  'C',
+  'c',
   '%',
-  'B',
+  '<',
   '/',
   '7',
   '8',
@@ -48,7 +48,7 @@ class Calculator extends StatelessWidget {
                     child: BlocConsumer<CalcCubit, CalcStates>(
                       listener: (context, state) => CalcCubit(),
                       builder: (context, state) {
-                          CalcCubit myCubit = CalcCubit.getCalcCubit(context);
+                        CalcCubit myCubit = CalcCubit.getCalcCubit(context);
                         return CalcTextField(
                           text: myCubit.state.text,
                         );
@@ -71,6 +71,25 @@ class Calculator extends StatelessWidget {
                         listener: (context, state) => CalcCubit(),
                         builder: (context, state) {
                           CalcCubit myCubit = CalcCubit.getCalcCubit(context);
+                          Function getFunction(String buttonText) {
+                            switch (buttonText) {
+                              case 'c':
+                                return myCubit.clear;
+                              case '<':
+                                return myCubit.backSpace;
+                              case '+':
+                                return myCubit.add;
+                              case '–':
+                                return myCubit.subtract;
+                              case '×':
+                                return myCubit.multiply;
+                              case '/':
+                                return myCubit.divide;
+                              default:
+                                return myCubit.checkSign;
+                            }
+                          }
+
                           List<Function> buttonFunctions = [
                             myCubit.clear,
                             myCubit.checkSign,
