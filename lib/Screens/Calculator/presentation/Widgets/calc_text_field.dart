@@ -26,14 +26,14 @@ class _CalcTextFieldState extends State<CalcTextField> {
             widget.subText,
             style: GoogleFonts.aBeeZee(
               fontSize: 36,
-              color: Colors.white70,
+              color: Colors.white,
             ),
           ),
           Text(
             widget.text,
             style: GoogleFonts.aBeeZee(
-              fontSize: 36,
-              color: Colors.white,
+              fontSize: 30,
+              color: Colors.white70,
             ),
           ),
         ],

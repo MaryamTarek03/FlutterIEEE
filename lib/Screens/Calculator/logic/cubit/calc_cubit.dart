@@ -102,7 +102,7 @@ class CalcCubit extends Cubit<CalcStates> {
     } else if (char == '=') {
       double x = answer;
       clear();
-      firstNum = x.toString();
+      firstNum = x == x.floor() ? x.toStringAsFixed(0) : x.toStringAsFixed(2);
     }
 
     evaluate();
