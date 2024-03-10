@@ -93,7 +93,9 @@ class CalcCubit extends Cubit<CalcStates> {
       backSpace();
     } else if (char == '.') {
       dot();
-    } else if (sign == '%') {
+    }
+    // ! doesn't work
+    else if (sign == '%') {
       if (secondNum.isEmpty) {
         firstNum = (double.parse(firstNum) / 100).toString();
       }
