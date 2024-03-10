@@ -4,28 +4,8 @@ import 'package:flutterieee/Screens/Calculator/logic/cubit/calc_cubit.dart';
 import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_btn.dart';
 import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_text_field.dart';
 
-List<String> buttons = [
-  'c',
-  '%',
-  '<',
-  '/',
-  '7',
-  '8',
-  '9',
-  '×',
-  '4',
-  '5',
-  '6',
-  '–',
-  '1',
-  '2',
-  '3',
-  '+',
-  ':)',
-  '0',
-  '.',
-  '=',
-];
+String myButtons = 'c%</789×456–123+:0.=';
+int buttonsNumber = 20;
 
 class Calculator extends StatelessWidget {
   const Calculator({super.key});
@@ -50,7 +30,10 @@ class Calculator extends StatelessWidget {
                       builder: (context, state) {
                         CalcCubit myCubit = CalcCubit.getCalcCubit(context);
                         return CalcTextField(
-                          text: myCubit.state.text,
+                          subText: myCubit.firstNum +
+                              myCubit.sign +
+                              myCubit.secondNum,
+                          text: myCubit.answer.toString(),
                         );
                       },
                     ),
@@ -64,59 +47,17 @@ class Calculator extends StatelessWidget {
                         crossAxisSpacing: 15,
                         mainAxisSpacing: 15,
                       ),
-                      itemCount: buttons.length,
+                      itemCount: buttonsNumber,
                       physics: const NeverScrollableScrollPhysics(),
                       itemBuilder: (context, index) =>
                           BlocConsumer<CalcCubit, CalcStates>(
                         listener: (context, state) => CalcCubit(),
                         builder: (context, state) {
                           CalcCubit myCubit = CalcCubit.getCalcCubit(context);
-                          Function getFunction(String buttonText) {
-                            switch (buttonText) {
-                              case 'c':
-                                return myCubit.clear;
-                              case '<':
-                                return myCubit.backSpace;
-                              case '+':
-                                return myCubit.add;
-                              case '–':
-                                return myCubit.subtract;
-                              case '×':
-                                return myCubit.multiply;
-                              case '/':
-                                return myCubit.divide;
-                              default:
-                                return myCubit.checkSign;
-                            }
-                          }
-
-                          List<Function> buttonFunctions = [
-                            myCubit.clear,
-                            myCubit.checkSign,
-                            myCubit.backSpace,
-                            myCubit.divide,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.multiply,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.subtract,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.add,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                            myCubit.checkSign,
-                          ];
                           return CalcButton(
-                            text: buttons[index],
-                            onPressed: () {
-                              buttonFunctions[index]();
-                            },
+                            text: myButtons[index],
+                            onPressed: () =>
+                                myCubit.buttonClick(myButtons[index]),
                           );
                         },
                       ),
