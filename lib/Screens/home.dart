@@ -7,6 +7,7 @@ import 'package:flutterieee/Screens/OtherScreens/s3.dart';
 import 'package:flutterieee/Screens/OtherScreens/session02.dart';
 import 'package:flutterieee/Screens/OtherScreens/task01.dart';
 import 'package:flutterieee/Screens/workshop/my_home_page.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'home_model.dart';
@@ -17,7 +18,7 @@ List<HomeModel> mainPages = [
   HomeModel(
     name: 'WhatsApp',
     page: const WhatsAppHome(),
-    icon: Icons.chat,
+    icon: FontAwesomeIcons.whatsapp,
   ),
   HomeModel(
     name: 'News App',
@@ -120,7 +121,7 @@ class TaskButton extends StatelessWidget {
               mainPages[index].name,
               style: GoogleFonts.cabin(
                 color: homeColor,
-                fontSize: 24,
+                fontSize: 20,
               ),
             ),
             leading: Text(

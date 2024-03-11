@@ -73,7 +73,22 @@ class CalcCubit extends Cubit<CalcStates> {
     } else if (firstNum.isNotEmpty) {
       if (!firstNum.contains('.')) firstNum = '$firstNum.';
     }
-    emit(CalcStates());
+  }
+
+  void negativePositive() {
+    if (secondNum.isNotEmpty) {
+      if (!secondNum.contains('-')) {
+        secondNum = '-$secondNum';
+      } else {
+        secondNum = secondNum.substring(1);
+      }
+    } else if (firstNum.isNotEmpty) {
+      if (!firstNum.contains('-')) {
+        firstNum = '-$firstNum';
+      } else {
+        firstNum = firstNum.substring(1);
+      }
+    }
   }
 
   void buttonClick(String char) {
@@ -93,8 +108,10 @@ class CalcCubit extends Cubit<CalcStates> {
       backSpace();
     } else if (char == '.') {
       dot();
+    } else if (char == '∓') {
+      negativePositive();
     } else if (char == '%') {
-      if (secondNum.isEmpty&& firstNum.isNotEmpty) {
+      if (secondNum.isEmpty && firstNum.isNotEmpty) {
         firstNum = (double.parse(firstNum) / 100).toString();
       }
     } else if (char == '=') {

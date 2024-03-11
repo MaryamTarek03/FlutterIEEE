@@ -3,8 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterieee/Screens/Calculator/logic/cubit/calc_cubit.dart';
 import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_btn.dart';
 import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_text_field.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-String myButtons = 'c%</789×456–123+:0.=';
+String myButtons = 'c%</789×456–123+∓0.=';
 int buttonsNumber = 20;
 
 class Calculator extends StatelessWidget {
@@ -33,7 +34,9 @@ class Calculator extends StatelessWidget {
                           subText: myCubit.firstNum +
                               myCubit.sign +
                               myCubit.secondNum,
-                          text: myCubit.answer == myCubit.answer.floor() ? myCubit.answer.toStringAsFixed(0) : myCubit.answer.toStringAsFixed(2),
+                          text: myCubit.answer == myCubit.answer.floor()
+                              ? myCubit.answer.toStringAsFixed(0)
+                              : myCubit.answer.toStringAsFixed(2),
                         );
                       },
                     ),
