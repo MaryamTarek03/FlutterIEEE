@@ -34,9 +34,11 @@ class Calculator extends StatelessWidget {
                           subText: myCubit.firstNum +
                               myCubit.sign +
                               myCubit.secondNum,
-                          text: myCubit.answer == myCubit.answer.floor()
-                              ? myCubit.answer.toStringAsFixed(0)
-                              : myCubit.answer.toStringAsFixed(2),
+                          text: myCubit.firstNum.isNotEmpty
+                              ? (myCubit.answer == myCubit.answer.floor()
+                                  ? myCubit.answer.toStringAsFixed(0)
+                                  : myCubit.answer.toStringAsFixed(2))
+                              : '0',
                         );
                       },
                     ),
