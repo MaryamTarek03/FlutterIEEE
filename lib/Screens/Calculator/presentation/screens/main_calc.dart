@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterieee/Screens/Calculator/logic/cubit/calc_cubit.dart';
 import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_btn.dart';
 import 'package:flutterieee/Screens/Calculator/presentation/Widgets/calc_text_field.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 String myButtons = 'c%</789×456–123+∓0.=';
 int buttonsNumber = 20;

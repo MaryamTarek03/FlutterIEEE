@@ -103,6 +103,13 @@ class CalcCubit extends Cubit<CalcStates> {
         }
         if (firstNum == '0') return;
       }
+      if (checkSign()) {
+        if (secondNum == '0') {
+          secondNum = '';
+        }
+      } else if (firstNum == '0') {
+        firstNum = '';
+      }
       checkSign() ? secondNum = secondNum + char : firstNum = firstNum + char;
     } else if (char == '<') {
       backSpace();
