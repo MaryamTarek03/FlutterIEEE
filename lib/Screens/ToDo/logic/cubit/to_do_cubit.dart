@@ -53,7 +53,6 @@ class ToDoCubit extends Cubit<ToDoState> {
         getRecordsFromDB();
       },
     ).then((value) {
-      //print('create db');
       database = value;
     }).catchError((error) {
       print(error.toString());
@@ -68,8 +67,7 @@ class ToDoCubit extends Cubit<ToDoState> {
     emit(GetRecordsLoadingState());
     await database
         .rawQuery(
-      // List<Map<String, Object?>>
-      'SELECT * FROM tasks', // 1,2,3,4,5,6
+      'SELECT * FROM tasks',
     )
         .then((value) {
       for (var row in value) {
@@ -96,8 +94,6 @@ class ToDoCubit extends Cubit<ToDoState> {
   }) async {
     await database
         .rawInsert(
-            // 'INSERT INTO tasks(title, date, time, status) VALUES(?, ?)',
-            // [note, number],
             'INSERT INTO tasks(title, date, time, status) VALUES("$title" , "$date","$time","$status")')
         .then((value) {
       // this value is the ID to this insertedRow
@@ -129,7 +125,7 @@ class ToDoCubit extends Cubit<ToDoState> {
       'DELETE FROM tasks WHERE id=?',
       [id],
     ).then((value) {
-      print('delete successfully');
+      print('deleted successfully');
       emit(DeleteState());
       getRecordsFromDB();
     });

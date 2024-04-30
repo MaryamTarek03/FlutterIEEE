@@ -10,14 +10,23 @@ class TaskItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       leading: const CircleAvatar(
-        backgroundImage: AssetImage('assets\\Pictures\\1.jpg'),
+        backgroundImage: AssetImage('assets/Pictures/1.jpg'),
       ),
-      title: Text(record['ID']),
-      trailing: Row(
-        children: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.done_outline_rounded)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.archive_outlined)),
-        ],
+      title: Text(record['title'].toString()),
+      trailing: SizedBox(
+        width: 100,
+        child: Row(
+          children: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.done_outline_rounded),
+            ),
+            IconButton(
+              onPressed: () {},
+              icon: Icon(Icons.archive_outlined),
+            ),
+          ],
+        ),
       ),
     );
   }
