@@ -38,7 +38,8 @@ class TaskItem extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {
-                  if (record['status'] == 'new') {
+                  if (record['status'] == 'new' ||
+                      record['status'] == 'archived') {
                     cubit.updateDB(status: 'finished', id: record['ID']);
                   } else {
                     cubit.updateDB(status: 'new', id: record['ID']);
