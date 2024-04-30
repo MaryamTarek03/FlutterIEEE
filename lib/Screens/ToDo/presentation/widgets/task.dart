@@ -37,11 +37,30 @@ class TaskItem extends StatelessWidget {
           child: Row(
             children: [
               IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.done_outline_rounded),
+                onPressed: () {
+                  if (record['status'] == 'new') {
+                    cubit.updateDB(status: 'finished', id: record['ID']);
+                  } else {
+                    cubit.updateDB(status: 'new', id: record['ID']);
+                  }
+                },
+                icon: record['status'] == 'new'
+                    ? Icon(Icons.done_outline_rounded)
+                    : Icon(
+                        Icons.done_rounded,
+                        color: record['status'] == 'finished'
+                            ? Colors.green
+                            : Colors.grey,
+                      ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  if (record['status'] == 'archived') {
+                    cubit.updateDB(status: 'new', id: record['ID']);
+                  } else {
+                    cubit.updateDB(status: 'archived', id: record['ID']);
+                  }
+                },
                 icon: Icon(Icons.archive_outlined),
               ),
             ],

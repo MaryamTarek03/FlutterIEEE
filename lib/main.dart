@@ -5,7 +5,7 @@ import 'package:flutterieee/Screens/home.dart';
 
 void main() {
   runApp(
-    const MyApp(),
+    DevicePreview(builder: (context) => const MyApp()),
   );
 }
 

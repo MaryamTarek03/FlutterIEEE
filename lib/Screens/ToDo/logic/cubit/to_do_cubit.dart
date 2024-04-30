@@ -32,7 +32,7 @@ class ToDoCubit extends Cubit<ToDoState> {
 
   late Database database;
   List<Map<String, dynamic>> newTasks = [];
-  List<Map<String, dynamic>> doneTasks = [];
+  List<Map<String, dynamic>> finishedTasks = [];
   List<Map<String, dynamic>> archivedTasks = [];
 
   // (ID INTEGER PRIMARY KEY, title TEXT, date TEXT, time TEXT, status TEXT)
@@ -54,6 +54,7 @@ class ToDoCubit extends Cubit<ToDoState> {
       },
     ).then((value) {
       database = value;
+      getRecordsFromDB();
     }).catchError((error) {
       print(error.toString());
     });
@@ -61,7 +62,7 @@ class ToDoCubit extends Cubit<ToDoState> {
 
   void getRecordsFromDB() async {
     newTasks = [];
-    doneTasks = [];
+    finishedTasks = [];
     archivedTasks = [];
 
     emit(GetRecordsLoadingState());
@@ -74,7 +75,7 @@ class ToDoCubit extends Cubit<ToDoState> {
         if (row['status'] == 'new') {
           newTasks.add(row);
         } else if (row['status'] == 'finished') {
-          doneTasks.add(row);
+          finishedTasks.add(row);
         } else {
           archivedTasks.add(row);
         }

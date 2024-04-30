@@ -89,12 +89,15 @@ class ToDoHome extends StatelessWidget {
                           ElevatedButton(
                             onPressed: () {
                               if (formKey.currentState!.validate()) {
-                                // insert new task in database
+                                Navigator.pop(context);
                                 cubit.insertDB(
                                   time: timeController.text,
                                   date: dateController.text,
                                   title: textController.text,
-                                ); // then >> (reset fields && close bottom sheet) in listener
+                                );
+                                timeController.text = '';
+                                dateController.text = '';
+                                textController.text = '';
                               }
                             },
                             child: Text('Add'),
