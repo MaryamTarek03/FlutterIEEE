@@ -18,7 +18,7 @@ class ToDoCubit extends Cubit<ToDoState> {
   ];
 
   List<String> titles = [
-    'New Tasks',
+    'Tasks',
     'Finished Tasks',
     'Archived Tasks',
   ];

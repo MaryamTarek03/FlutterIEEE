@@ -50,7 +50,7 @@ class ToDoHome extends StatelessWidget {
                           ),
                           MyField(
                             controller: timeController,
-                            inputType: TextInputType.datetime,
+                            inputType: TextInputType.none,
                             label: 'Time',
                             icon: Icons.timer_outlined,
                             onTap: () {

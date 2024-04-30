@@ -1,5 +1,6 @@
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterieee/Screens/ToDo/logic/cubit/to_do_cubit.dart';
 import 'package:flutterieee/Screens/ToDo/presentation/widgets/task.dart';
 
 class TaskBuilder extends StatelessWidget {
@@ -9,6 +10,7 @@ class TaskBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = ToDoCubit.get(context);
     return ConditionalBuilder(
       condition: tasks.isNotEmpty,
       fallback: (context) => const Center(
@@ -18,6 +20,8 @@ class TaskBuilder extends StatelessWidget {
         itemCount: tasks.length,
         itemBuilder: (context, index) => TaskItem(
           record: tasks[index],
+          deleteFunction: (context) =>
+              cubit.deleteFromDB(id: tasks[index]['ID']),
         ),
       ),
     );

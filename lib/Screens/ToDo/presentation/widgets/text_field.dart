@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 
 class MyField extends StatelessWidget {
-  const MyField({
+  MyField({
     super.key,
     required this.controller,
     required this.inputType,
     required this.label,
-    required this.icon, required this.onTap,
+    required this.icon,
+    required this.onTap,
   });
 
   final TextEditingController controller;
@@ -19,9 +20,10 @@ class MyField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       onTap: onTap,
+      controller: controller,
       validator: (String? value) {
         if (value!.isEmpty) {
-          return 'Date must not be empty';
+          return 'This field should\'nt be empty';
         }
         return null;
       },
