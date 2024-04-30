@@ -1,8 +1,12 @@
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutterieee/Screens/ToDo/presentation/screens/todo_home.dart';
 import 'package:flutterieee/Screens/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -13,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter IEEE',
       theme: ThemeData(),
-      home: const Home(),
+      home: const ToDoHome(),
       debugShowCheckedModeBanner: false,
     );
   }
