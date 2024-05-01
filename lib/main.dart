@@ -16,7 +16,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter IEEE',
-      theme: ThemeData(),
+      theme: ThemeData(
+        bottomSheetTheme: const BottomSheetThemeData(
+          surfaceTintColor: Colors.white,
+        ),
+      ),
       home: ToDoHome(),
       debugShowCheckedModeBanner: false,
     );

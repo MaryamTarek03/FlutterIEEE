@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutterieee/Screens/ToDo/logic/cubit/to_do_cubit.dart';
-import 'package:flutterieee/Screens/ToDo/presentation/widgets/task.dart';
 import 'package:flutterieee/Screens/ToDo/presentation/widgets/tasks_builder.dart';
 
 class NewTasks extends StatelessWidget {

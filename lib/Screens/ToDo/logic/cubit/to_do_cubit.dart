@@ -44,20 +44,15 @@ class ToDoCubit extends Cubit<ToDoState> {
         db.execute('''
         CREATE TABLE tasks(ID INTEGER PRIMARY KEY, title TEXT, date TEXT, time TEXT, status TEXT)
         ''').then(
-            (value) {
-          print('table created');
-        });
+            (value) {});
       },
       onOpen: (db) {
-        print('open database');
         getRecordsFromDB();
       },
     ).then((value) {
       database = value;
       getRecordsFromDB();
-    }).catchError((error) {
-      print(error.toString());
-    });
+    }).catchError((error) {});
   }
 
   void getRecordsFromDB() async {
@@ -82,9 +77,7 @@ class ToDoCubit extends Cubit<ToDoState> {
       }
       emit(GetRecordsState());
       //print(value);
-    }).catchError((error) {
-      print(error.toString());
-    });
+    }).catchError((error) {});
   }
 
   void insertDB({
@@ -100,10 +93,7 @@ class ToDoCubit extends Cubit<ToDoState> {
       // this value is the ID to this insertedRow
       emit(InsertState());
       getRecordsFromDB();
-      print('insert success : $value');
-    }).catchError((error) {
-      print(error.toString());
-    });
+    }).catchError((error) {});
   }
 
   void updateDB({
@@ -126,7 +116,6 @@ class ToDoCubit extends Cubit<ToDoState> {
       'DELETE FROM tasks WHERE id=?',
       [id],
     ).then((value) {
-      print('deleted successfully');
       emit(DeleteState());
       getRecordsFromDB();
     });
