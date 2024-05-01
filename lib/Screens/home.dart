@@ -6,6 +6,7 @@ import 'package:flutterieee/Screens/Grid/grid_view.dart';
 import 'package:flutterieee/Screens/OtherScreens/s3.dart';
 import 'package:flutterieee/Screens/OtherScreens/session02.dart';
 import 'package:flutterieee/Screens/OtherScreens/task01.dart';
+import 'package:flutterieee/Screens/ToDo/presentation/screens/todo_home.dart';
 import 'package:flutterieee/Screens/workshop/my_home_page.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -54,6 +55,11 @@ List<HomeModel> mainPages = [
     name: 'Counter',
     page: const Counter(),
     icon: Icons.add_circle_outline_rounded,
+  ),
+  HomeModel(
+    name: 'To Do',
+    page: ToDoHome(),
+    icon: Icons.task_alt_rounded,
   ),
 ];
 

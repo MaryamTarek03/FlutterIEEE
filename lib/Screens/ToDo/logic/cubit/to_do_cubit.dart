@@ -35,7 +35,6 @@ class ToDoCubit extends Cubit<ToDoState> {
   List<Map<String, dynamic>> finishedTasks = [];
   List<Map<String, dynamic>> archivedTasks = [];
 
-  // (ID INTEGER PRIMARY KEY, title TEXT, date TEXT, time TEXT, status TEXT)
   void createDB() async {
     await openDatabase(
       'todo.db',
@@ -46,9 +45,9 @@ class ToDoCubit extends Cubit<ToDoState> {
         ''').then(
             (value) {});
       },
-      onOpen: (db) {
-        getRecordsFromDB();
-      },
+      // onOpen: (db) {
+      //   getRecordsFromDB();
+      // },
     ).then((value) {
       database = value;
       getRecordsFromDB();
@@ -90,7 +89,6 @@ class ToDoCubit extends Cubit<ToDoState> {
         .rawInsert(
             'INSERT INTO tasks(title, date, time, status) VALUES("$title" , "$date","$time","$status")')
         .then((value) {
-      // this value is the ID to this insertedRow
       emit(InsertState());
       getRecordsFromDB();
     }).catchError((error) {});

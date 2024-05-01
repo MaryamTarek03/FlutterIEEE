@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           surfaceTintColor: Colors.white,
         ),
       ),
-      home: ToDoHome(),
+      home: const Home(),
       debugShowCheckedModeBanner: false,
     );
   }
