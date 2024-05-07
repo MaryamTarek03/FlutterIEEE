@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterieee/Screens/BMI%20Calc/bmi_login.dart';
 import 'package:flutterieee/Screens/Calculator/presentation/screens/main_calc.dart';
 import 'package:flutterieee/Screens/Counter/counter.dart';
+import 'package:flutterieee/Screens/DummyProducts/presentation/Screens/main_page.dart';
 import 'package:flutterieee/Screens/Grid/grid_view.dart';
 import 'package:flutterieee/Screens/OtherScreens/s3.dart';
 import 'package:flutterieee/Screens/OtherScreens/session02.dart';
@@ -60,6 +61,11 @@ List<HomeModel> mainPages = [
     name: 'To Do',
     page: ToDoHome(),
     icon: Icons.task_alt_rounded,
+  ),
+  HomeModel(
+    name: 'Smart Products',
+    page: const ProductsHome(),
+    icon: Icons.shop_rounded,
   ),
 ];
 
