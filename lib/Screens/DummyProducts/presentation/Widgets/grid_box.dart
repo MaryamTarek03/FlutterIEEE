@@ -1,67 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:flutterieee/Screens/DummyProducts/Config/theme/dummy_api_colors.dart';
+import 'package:flutterieee/Screens/DummyProducts/Config/theme/techie_colors.dart';
 import 'package:flutterieee/Screens/DummyProducts/data/models/product_model.dart';
+import 'package:flutterieee/Screens/DummyProducts/presentation/Screens/product_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProductItem extends StatelessWidget {
   const ProductItem({super.key, required this.product});
 
-  final ProductsModel product;
+  final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(25),
+    return InkWell(
+      onTap: () => Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => ProductScreen(
+            product: product,
+          ),
         ),
-        child: Stack(
-          alignment: Alignment.bottomLeft,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: Container(
-                width: screenSize.width * 0.5,
-                height: screenSize.height * 0.25,
-                clipBehavior: Clip.antiAlias,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                child: Image.network(
-                  product.thumbnail,
-                  fit: BoxFit.cover,
-                ),
-              ),
+      ),
+      child: Stack(
+        alignment: Alignment.topRight,
+        children: [
+          Container(
+            height: screenSize.height * 0.5,
+            decoration: BoxDecoration(
+              color: TechieColors.lightPrimary,
+              borderRadius: BorderRadius.circular(18),
             ),
-            Container(
-              clipBehavior: Clip.none,
-              width: double.infinity,
-              height: 30,
-              decoration: const BoxDecoration(
-                color: DummyDataColors.primary,
-                borderRadius: BorderRadius.all(
-                  Radius.circular(25),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(3.0),
-                child: Center(
-                  child: Text(
-                    product.title,
-                    textAlign: TextAlign.center,
-                    overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.aBeeZee(
-                      color: Colors.white,
-                      fontSize: 16,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Hero(
+                    tag: product.id,
+                    child: Container(
+                      width: screenSize.width * 0.4,
+                      height: screenSize.height * 0.12,
+                      clipBehavior: Clip.antiAlias,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Image.network(
+                        product.thumbnail,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
+                  Text(
+                    product.title,
+                    overflow: TextOverflow.ellipsis,
+                    style: GoogleFonts.mPlusRounded1c(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    product.description,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Spacer(),
+                  Text(
+                    '${product.price}\$',
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+          Container(
+            clipBehavior: Clip.antiAlias,
+            width: screenSize.width * 0.15,
+            height: 25,
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topRight: Radius.circular(18),
+                bottomLeft: Radius.circular(10),
+              ),
+            ),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(product.rating.toStringAsFixed(1)),
+                const Icon(
+                  Icons.star,
+                  color: Colors.amber,
+                )
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }

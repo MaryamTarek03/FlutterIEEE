@@ -1,4 +1,4 @@
-class ProductsModel {
+class ProductModel {
   late int id;
   late double price;
   late double rating;
@@ -9,7 +9,7 @@ class ProductsModel {
   late String category;
   late String thumbnail;
   late List<String> images;
-  ProductsModel.data(Map<String, dynamic> productsData) {
+  ProductModel.data(Map<String, dynamic> productsData) {
     id = productsData['id'];
     price = productsData['price'];
     rating = productsData['rating'];

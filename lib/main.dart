@@ -1,7 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterieee/Screens/DummyProducts/data/helper/dio_helper.dart';
-import 'package:flutterieee/Screens/DummyProducts/presentation/Screens/main_page.dart';
 import 'package:flutterieee/Screens/home.dart';
 
 void main() {

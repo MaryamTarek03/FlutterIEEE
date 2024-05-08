@@ -10,7 +10,7 @@ part 'products_state.dart';
 class ProductsCubit extends Cubit<ProductsState> {
   ProductsCubit() : super(ProductsInitial());
 
-  List<ProductsModel> products = [];
+  List<ProductModel> products = [];
   static ProductsCubit get(context) => BlocProvider.of(context);
 
   void getProducts() async {
@@ -20,7 +20,7 @@ class ProductsCubit extends Cubit<ProductsState> {
           await DioHelper.productsDio.get(Endpoints.products);
 
       products = productsData.data['products']
-          .map<ProductsModel>((element) => ProductsModel.data(element))
+          .map<ProductModel>((element) => ProductModel.data(element))
           .toList();
 
       // print(products[0].title);
